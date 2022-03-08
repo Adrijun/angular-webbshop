@@ -1,1 +1,6 @@
-<p>products works!</p>
+<div *ngFor="let m of movies">
+    <h3> {{m.name}} </h3>
+    <h3> {{m.year}} </h3>
+    <!-- <h3> {{}} </h3> -->
+    <button (click)="saveToCart(m)">Köp</button>
+</div>

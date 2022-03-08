@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ProductsService } from 'src/app/services/products.service';
+
+
 
 @Component({
   selector: 'app-products',
@@ -7,16 +9,21 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  productId: number = 0;
-  constructor(private route: ActivatedRoute) { }
+  movies: any;
+  constructor(private service: ProductsService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe((p) => {
-      p['id']
-      this.productId = +p['id'];
 
-      // Anropa min tjänst för att hämta ett objekt
+    this.service.getMovies().subscribe((result) => {
+      console.log(result);
+      this.movies = result
     });
   }
 
+  saveToCart(movie: any) {
+    console.log(movie.id);
+    localStorage.setItem('id', movie.id)
+
+
+  }
 }
