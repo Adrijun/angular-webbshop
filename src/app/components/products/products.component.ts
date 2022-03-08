@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 
@@ -10,7 +11,8 @@ import { ProductsService } from 'src/app/services/products.service';
 })
 export class ProductsComponent implements OnInit {
   movies: any;
-  constructor(private service: ProductsService) { }
+  constructor(private service: ProductsService,
+    private cartService: CartService) { }
 
   ngOnInit(): void {
 
@@ -20,10 +22,14 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  saveToCart(movie: any) {
-    console.log(movie.id);
-    localStorage.setItem('id', movie.id)
+  // // saveToCart(movie: any) {
+  // //   console.log(movie.id);
+  // //   localStorage.setItem('id', movie.id)
 
+
+  // }
+  addToCart() {
+    this.cartService.addToCart(this.movies);
 
   }
 }
