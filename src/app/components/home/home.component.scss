@@ -1,0 +1,36 @@
+
+
+.movieImage {
+   height: 10%;
+   width: 20%;
+   border-top-left-radius: 150px;
+border-bottom-right-radius: 150px;
+}
+
+section {
+    font-size: 2rem;
+    height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+
+button {
+    margin-top: 10%;
+    font-family: 'Nunito';
+    font-size: 2rem;
+    height: 20vh;
+    width: 50%;
+    border-radius: 10px;
+    cursor: pointer;
+        &:hover{
+            background-color: gold;
+        }
+        a {
+            text-decoration: black;
+            color: black;
+        }    
+}
+
+
+}
