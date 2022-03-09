@@ -1,5 +1,8 @@
 <section>
     <h2> Alla dina filmhjältar på ett ställe!</h2>
 
+    <div class="movieContainer">
+        <img *ng="let movie of movies" [src]="movie[0].imageUrl" alt="Poster">
+    </div>
     <button> <a routerLink="/products/:id">Köp dina favoritfilmer här </a></button>
 </section>

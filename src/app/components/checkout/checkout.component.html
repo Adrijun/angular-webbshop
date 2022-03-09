@@ -1,5 +1,14 @@
 <ul>
     <li *ngFor="let cartItem of cart.items">
+        <h1> {{cartItem.movie.name}} </h1>
+        <h1> {{cartItem.quantity}} </h1>
+        <h1> {{cartItem.price}}</h1>
+        <button (click)="removeFromCart(cartItem)">Ångra</button>
 
+
+        <!-- <div>
+
+             <img [src]="cartItem.movie.imageUrl" [alt]="cartItem.movie.name"> 
+        <!-- </div> -->
     </li>
 </ul>

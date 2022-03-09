@@ -1,14 +1,14 @@
 <section>
 
-    <div class="movieContainer" *ngFor="let m of movies">
-        <h3> {{m.name}} </h3>
-        <img class="movieImage" [src]="m.imageUrl" alt="Poster">
-        <p class="movieDescription"> {{m.description}} </p>
-        <p> Utgiven: {{m.year}} </p>
-        <p> Pris: {{m.price}}kr
+    <div class="movieContainer" *ngFor="let movie of movies">
+        <h3> {{movie.name}} </h3>
+        <img class="movieImage" [src]="movie.imageUrl" alt="Poster">
+        <p class="movieDescription"> {{movie.description}} </p>
+        <p> Utgiven: {{movie.year}} </p>
+        <p> Pris: {{movie.price}}kr
         <p>
 
-            <button (click)="addToCart()">Köp</button>
+            <button (click)="addToCart(movie)">Köp</button>
     </div>
 
 </section>

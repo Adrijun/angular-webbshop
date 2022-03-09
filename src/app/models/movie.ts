@@ -5,4 +5,5 @@ export class Movie {
     description!: string;
     imageUrl!: string;
     date?: number;
+    year?: number;
 }

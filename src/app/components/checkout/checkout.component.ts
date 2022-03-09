@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/models/cart';
 import { CartItem } from 'src/app/models/cartItem';
 import { CartService } from 'src/app/services/cart.service';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-checkout',
@@ -24,8 +25,13 @@ export class CheckoutComponent implements OnInit {
 
 
   ngOnInit(): void {
+    this.setCart();
   }
   setCart() {
     this.cart = this.cartService.getCart();
   }
+
+  text = new FormControl('');
+
+
 }

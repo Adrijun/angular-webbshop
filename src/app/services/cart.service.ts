@@ -10,6 +10,7 @@ import { Movie } from '../models/movie';
 export class CartService {
   private cart: Cart = new Cart();
 
+
   addToCart(movie: Movie): void {
     let cartItem = this.cart.items.find(item => item.movie.id === movie.id);
     if (cartItem) {
@@ -33,5 +34,5 @@ export class CartService {
   }
 
 
-  constructor() { }
+
 }

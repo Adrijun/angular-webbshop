@@ -1,18 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'src/environments/environment';
+import { Observable } from 'rxjs';
+import { Movie } from '../models/movie';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-
-  getApi = (environment.productsUrl);
+  // Hämtar Api
+  getApi = 'https://medieinstitutet-wie-products.azurewebsites.net/api/products';
 
   constructor(private http: HttpClient) { }
 
-  getMovies() {
-    return this.http.get(this.getApi);
+  getMovies(): Observable<Movie[]> {
+    console.log(Movie);
+    console.log(this.getApi);
+
+    return this.http.get<Movie[]>(this.getApi);
 
   }
 }

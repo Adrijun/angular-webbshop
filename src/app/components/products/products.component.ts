@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Movie } from 'src/app/models/movie';
 import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
@@ -10,13 +12,14 @@ import { ProductsService } from 'src/app/services/products.service';
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit {
-  movies: any;
-  constructor(private service: ProductsService,
-    private cartService: CartService) { }
+  movies: Movie[] = [];
+  movie!: Movie
+  constructor(private item: ProductsService,
+    private cartService: CartService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
 
-    this.service.getMovies().subscribe((result) => {
+    this.item.getMovies().subscribe((result: Movie[]) => {
       console.log(result);
       this.movies = result
     });
@@ -28,8 +31,10 @@ export class ProductsComponent implements OnInit {
 
 
   // }
-  addToCart() {
-    this.cartService.addToCart(this.movies);
+  addToCart(movie: Movie) {
+    this.cartService.addToCart(movie);
+    console.log(movie.name);
+
 
   }
 }
