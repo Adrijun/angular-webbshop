@@ -2,16 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { Cart } from 'src/app/models/cart';
 import { CartItem } from 'src/app/models/cartItem';
 import { CartService } from 'src/app/services/cart.service';
-import { FormControl } from '@angular/forms';
-
+import { FormGroup, FormControl } from '@angular/forms';
+import { OrdersService } from 'src/app/services/orders.service';
+import { sendOrder } from 'src/app/models/sendOrder';
 @Component({
   selector: 'app-checkout',
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+
+
   cart!: Cart;
-  constructor(private cartService: CartService) { }
+  constructor(private cartService: CartService, private orderService: OrdersService) { }
 
   removeFromCart(cartItem: CartItem) {
     this.cartService.removeFromCart(cartItem.movie.id);
@@ -31,7 +34,45 @@ export class CheckoutComponent implements OnInit {
     this.cart = this.cartService.getCart();
   }
 
-  text = new FormControl('');
 
+  userForm = new FormGroup({
+    firstName: new FormControl(''),
+    lastName: new FormControl(''),
+    email: new FormControl(''),
+    country: new FormControl(''),
+    city: new FormControl(''),
+    zipcode: new FormControl,
+    address: new FormControl(''),
+    movieOrder: new FormControl(this.cartService)
+
+  });
+
+  handleSubmit() {
+    var orderRows = this.cart.items.map((item) => {
+      return { productId: item.movie.id, amount: item.quantity }
+    });
+
+
+    let formBody: sendOrder = {
+
+      id: 0,
+      companyId: 14,
+      created: new Date(),
+      createdBy: this.userForm.value.firstName + '' + this.userForm.value.email,
+      paymenyMethod: 'cash',
+      totalPrice: this.cart.totalPrice,
+      status: 0,
+      orderRow: orderRows
+
+
+
+    }
+
+    console.log(formBody);
+
+    return this.orderService.postToApi(formBody)
+
+
+  }
 
 }

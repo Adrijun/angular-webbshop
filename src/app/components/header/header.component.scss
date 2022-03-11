@@ -7,7 +7,7 @@ $primary: rgb(111,0,255);
 
 header {
     margin: 0;
-    background-color: $primary;
+    background-color:darken($primary, 10%);
     padding: 1em 0;
 
 

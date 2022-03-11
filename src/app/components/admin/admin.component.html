@@ -1,1 +1,13 @@
-<p>admin works!</p>
+<ul *ngFor="let order of orderToApis">
+
+    <li>
+
+        <p> {{order.createdBy}} </p>
+        <p> {{order.created}} </p>
+        <p> {{order.totalPrice}} kr </p>
+
+    </li>
+
+
+
+</ul>

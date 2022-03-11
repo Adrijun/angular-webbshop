@@ -1,27 +1,30 @@
 
-
-.movieImage {
-   height: 10%;
-   width: 20%;
-   border-top-left-radius: 150px;
-border-bottom-right-radius: 150px;
-}
-
 section {
-    font-size: 2rem;
-    height: 70vh;
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
+    background-color: rgb(111,0,255);
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   
+
+    h2 {
+        font-size: 2rem
+    }
+    .heroes {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        height: 50%;
+        width: 50%;
+        
+        }
 
 button {
-    margin-top: 10%;
+    margin-bottom: 10vh;
     font-family: 'Nunito';
-    font-size: 2rem;
-    height: 20vh;
+    font-size: 1.5rem;
+    height: 10vh;
     width: 50%;
-    border-radius: 10px;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
     cursor: pointer;
         &:hover{
             background-color: gold;
