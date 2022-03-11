@@ -1,32 +1,33 @@
-<form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
-    <label> Förnamn:</label>
-    <input type="text" formControlName='firstName' />
-    <label> Efternamn:</label>
-    <input type="text" formControlName='lastName' />
-    <label> Email:</label>
-    <input type="text" formControlName='email' />
-    <label> Land</label>
-    <input type="text" formControlName='country' />
-    <label> Stad</label>
-    <input type="text" formControlName='city' />
-    <label> Postnummer</label>
-    <input type="text" formControlName='zipcode' />
-    <label> Adress</label>
-    <input type="text" formControlName='address' />
-    <label> Varukorg</label>
+<section class="formSection">
+    <form [formGroup]="userForm" (ngSubmit)="handleSubmit()">
+        <label> Förnamn:</label>
+        <input type="text" formControlName='firstName' />
+        <label> Efternamn:</label>
+        <input type="text" formControlName='lastName' />
+        <label> Email:</label>
+        <input type="text" formControlName='email' />
+        <label> Land:</label>
+        <input type="text" formControlName='country' />
+        <label> Stad:</label>
+        <input type="text" formControlName='city' />
+        <label> Postnummer:</label>
+        <input type="text" formControlName='zipcode' />
+        <label> Adress:</label>
+        <input type="text" formControlName='address' />
+        <label> Varukorg:</label>
 
-    <ul>
-        <li *ngFor="let cartItem of cart.items">
-            <p> Titel: {{cartItem.movie.name}} </p>
-            <p> Antal: {{cartItem.quantity}} </p>
-            <p> Kostnad: {{cartItem.price}}</p>
-            <button (click)="removeFromCart(cartItem)">Ångra</button>
-        </li>
-    </ul>
+        <ul>
+            <li *ngFor="let cartItem of cart.items">
+                <p> Titel: {{cartItem.movie.name}} </p>
+                <p> Antal: {{cartItem.quantity}} </p>
+                <p> Kostnad: {{cartItem.price}}</p>
+                <button class="buttonRegret" (click)="removeFromCart(cartItem)">Ångra</button>
+            </li>
+        </ul>
 
-    <button type='submit'>Beställ</button>
-</form>
-
+        <button class="buttonOrder" type='submit'>Beställ</button>
+    </form>
+</section>
 
 
 <!-- <p>

@@ -1,5 +1,28 @@
-form {
-    width: 100px;
-    display: flex;
-    flex-direction: column;
+
+.formSection {
+    margin: 10px;
+    
+    form {
+        width: 100px;
+        display: flex;
+        flex-direction: column;
+
+        li {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            margin: 5px;
+            gap: 30px;
+
+        .buttonRegret {
+        width: 80px;
+        height: 60px;
+            &:hover {
+            border-radius: 50px;
+            background-color: gold;
+            cursor: pointer;
+                }
+            }
+        }
+    }
 }
