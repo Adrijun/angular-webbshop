@@ -13,7 +13,6 @@ export class OrdersService {
   constructor(private http: HttpClient) { }
 
   getOrderApi(): Observable<sendOrder[]> {
-    console.log(this.orderUrl);
     return this.http.get<sendOrder[]>(this.orderUrl)
   }
 

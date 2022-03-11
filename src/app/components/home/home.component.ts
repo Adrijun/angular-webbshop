@@ -16,7 +16,5 @@ export class HomeComponent implements OnInit {
       console.log(result);
       this.movies = result
     });
-
   }
-
 }

@@ -24,17 +24,8 @@ export class ProductsComponent implements OnInit {
       this.movies = result
     });
   }
-
-  // // saveToCart(movie: any) {
-  // //   console.log(movie.id);
-  // //   localStorage.setItem('id', movie.id)
-
-
-  // }
   addToCart(movie: Movie) {
     this.cartService.addToCart(movie);
     console.log(movie.name);
-
-
   }
 }

@@ -12,7 +12,6 @@ import { sendOrder } from 'src/app/models/sendOrder';
 })
 export class CheckoutComponent implements OnInit {
 
-
   cart!: Cart;
   constructor(private cartService: CartService, private orderService: OrdersService) { }
 
@@ -25,15 +24,12 @@ export class CheckoutComponent implements OnInit {
     this.cartService.changeQuantity(cartItem.movie.id, quantity);
     this.setCart();
   }
-
-
   ngOnInit(): void {
     this.setCart();
   }
   setCart() {
     this.cart = this.cartService.getCart();
   }
-
 
   userForm = new FormGroup({
     firstName: new FormControl(''),
@@ -44,7 +40,6 @@ export class CheckoutComponent implements OnInit {
     zipcode: new FormControl,
     address: new FormControl(''),
     movieOrder: new FormControl(this.cartService)
-
   });
 
   handleSubmit() {
@@ -52,9 +47,7 @@ export class CheckoutComponent implements OnInit {
       return { productId: item.movie.id, amount: item.quantity }
     });
 
-
     let formBody: sendOrder = {
-
       id: 0,
       companyId: 14,
       created: new Date(),
@@ -63,16 +56,7 @@ export class CheckoutComponent implements OnInit {
       totalPrice: this.cart.totalPrice,
       status: 0,
       orderRow: orderRows
-
-
-
     }
-
-    console.log(formBody);
-
     return this.orderService.postToApi(formBody)
-
-
   }
-
 }

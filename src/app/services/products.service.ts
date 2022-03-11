@@ -14,11 +14,7 @@ export class ProductsService {
   constructor(private http: HttpClient) { }
 
   getMovies(): Observable<Movie[]> {
-    console.log(Movie);
-    console.log(this.getApi);
-
     return this.http.get<Movie[]>(this.getApi);
-
   }
 }
 
